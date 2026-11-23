@@ -63,6 +63,9 @@ footer{border-top:1px solid var(--line);color:#c7b6c1}.foot{display:flex;justify
 @media(max-width:770px){.wrap{width:calc(100% - 46px)}.cards{gap:8px}.card{padding:11px}.timeline{gap:8px}.phase:after{right:-11px}.phase b{font-size:.94rem}.card-head{gap:5px}.tag{font-size:.55rem}}
 @media(max-width:560px){html{scroll-padding-top:76px}.wrap{width:calc(100% - 32px)}.bar{min-height:57px;gap:10px}nav{gap:11px;font-size:.73rem}.brand{gap:4px;font-size:.88rem}.brand img{width:22px;height:22px}.hero{padding:37px 0 30px}.hero-intro{margin-bottom:23px}.hero-intro p:last-child{font-size:.93rem}.tier{min-height:63px}.tier small{letter-spacing:.075em}.pills{gap:5px}.funnel-legend{margin-top:14px}.cards,.terms{grid-template-columns:1fr}.card{min-height:auto}.artifact{min-height:70px}.section-heading{margin-bottom:16px}.timeline{grid-template-columns:repeat(2,1fr);gap:8px}.phase:nth-child(2):after{display:none}.foot .micro{font-size:.58rem}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.client-dedication{margin:0 auto 18px;padding:9px 18px 11px;width:fit-content;max-width:min(100%,46rem);border:1px solid #a24d5c;border-radius:16px;background:#2c141f;color:#fffafb;overflow-wrap:anywhere}
+.client-dedication span{display:block;color:var(--pink);font:750 .69rem/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.client-dedication strong{display:block;margin-top:2px;font-size:clamp(1.25rem,4vw,2.3rem);line-height:1.13;letter-spacing:-.035em}
 </style>
 </head>
 <body>
@@ -75,6 +78,7 @@ footer{border-top:1px solid var(--line);color:#c7b6c1}.foot{display:flex;justify
 <section class="hero" id="funnel" aria-labelledby="hero-title"><div class="wrap">
 <div class="hero-intro">
 <p class="eyebrow">The Ignite setup</p>
+<p class="client-dedication" id="client-dedication" hidden><span>Prepared for</span><strong id="client-name" dir="auto"></strong></p>
 <h1 id="hero-title">From first click <em>to signed job.</em></h1>
 <p>Where we build the system. Where your team takes over.</p>
 </div>
@@ -141,5 +145,35 @@ footer{border-top:1px solid var(--line);color:#c7b6c1}.foot{display:flex;justify
 </div>
 </main>
 <footer><div class="wrap foot"><span class="micro">Ignite Co. / Client setup guide</span><a href="#top">Back to top ↑</a></div></footer>
+<script>
+(() => {
+  const dedication = document.getElementById('client-dedication');
+  const nameNode = document.getElementById('client-name');
+  const anchors = new Map([...document.querySelectorAll('a[href^="#"]')].map(a => [a, a.getAttribute('href')]));
+  function update() {
+    const raw = location.hash.slice(1);
+    const params = new URLSearchParams(raw);
+    const name = Array.from((params.get('for') || '').replace(/[\u0000-\u001f\u007f]/g, ' ').trim()).slice(0, 100).join('');
+    nameNode.textContent = name;
+    dedication.hidden = !name;
+    for (const [a, original] of anchors) {
+      a.setAttribute('href', name ? '#' + new URLSearchParams({for: name, at: original.slice(1)}) : original);
+    }
+    const at = params.get('at');
+    if (name && at && ['main', 'top', 'funnel', 'timeline', 'terms'].includes(at)) {
+      const target = document.getElementById(at);
+      if (target) {
+        if (at === 'main') {
+          target.setAttribute('tabindex', '-1');
+          target.focus({preventScroll: true});
+        }
+        target.scrollIntoView();
+      }
+    }
+  }
+  update();
+  window.addEventListener('hashchange', update);
+})();
+</script>
 </body>
 </html>

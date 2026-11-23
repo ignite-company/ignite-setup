@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#09090b">
+<title>Presentation Link | Ignite Co.</title>
+<style>
+:root{color-scheme:dark;--pink:#ff858d;--line:#614655}*{box-sizing:border-box}
+body{margin:0;display:grid;min-height:100svh;place-items:center;padding:22px;background:radial-gradient(ellipse at 50% 36%,#35141e,#09090b 70%);color:#fffafb;font:1rem/1.5 Inter,Arial,sans-serif}
+main{width:min(100%,520px);padding:clamp(21px,5vw,40px);background:#181118;border:1px solid var(--line);border-radius:22px}
+.brand{color:var(--pink);font:750 .77rem/1.4 monospace;text-transform:uppercase;letter-spacing:.13em}
+h1{font-size:clamp(1.95rem,6vw,3.1rem);line-height:1.04;letter-spacing:-.06em;margin:10px 0 12px}p{margin:0 0 22px;color:#e1d3da}
+label{display:block;font-weight:750;margin-bottom:6px}input{width:100%;padding:11px 12px;border:1px solid #9c7186;border-radius:10px;background:#100c10;color:#fffafb;font:inherit}
+.actions{display:flex;gap:10px;margin:18px 0 22px;flex-wrap:wrap}.actions>*{flex:1 1 150px;text-align:center;padding:10px 12px;border:1px solid #9c7186;border-radius:10px;color:#fffafb;background:#2d1b28;font:750 1rem/1.4 Inter,Arial,sans-serif;cursor:pointer;text-decoration:none}
+.actions button:first-child{background:var(--pink);color:#21121b;border-color:var(--pink)}button:disabled{opacity:.55;cursor:not-allowed}a[hidden]{display:none}
+#link{font-family:monospace;font-size:.89rem}#status{min-height:1.5em;margin:7px 0 0;color:var(--pink);font-size:.9rem}
+:focus-visible{outline:2px solid var(--pink);outline-offset:3px}
+</style>
+</head>
+<body>
+<main>
+  <span class="brand">Ignite Co. / Presenter</span>
+  <h1>Personalize your setup deck</h1>
+  <p>Enter a company name, then copy or open the link you’ll share with your client.</p>
+  <form id="presentation" novalidate>
+    <label for="company">Company name</label>
+    <input id="company" type="text" maxlength="100" placeholder="e.g. Carroll Construction" autocomplete="organization">
+    <div class="actions">
+      <button id="copy" type="button" disabled>Copy client link</button>
+      <a id="open" target="_blank" rel="noopener noreferrer" hidden>Open presentation</a>
+    </div>
+    <label for="link">Client link</label>
+    <input id="link" type="text" readonly spellcheck="false" placeholder="Your link appears here">
+    <p id="status" role="status"></p>
+  </form>
+</main>
+<script>
+(() => {
+  const company = document.getElementById('company');
+  const link = document.getElementById('link');
+  const copy = document.getElementById('copy');
+  const open = document.getElementById('open');
+  const status = document.getElementById('status');
+  const update = () => {
+    const name = company.value.replace(/[\u0000-\u001f\u007f]/g, ' ').trim();
+    const url = new URL('/', location.origin);
+    url.hash = new URLSearchParams({for: name}).toString();
+    link.value = name ? url.href : '';
+    open.hidden = !name;
+    if (name) open.href = link.value;
+    else open.removeAttribute('href');
+    copy.disabled = !name;
+    status.textContent = '';
+  };
+  company.addEventListener('input', update);
+  document.getElementById('presentation').addEventListener('submit', e => {
+    e.preventDefault();
+    if (link.value) open.click();
+  });
+  link.addEventListener('focus', () => link.select());
+  copy.addEventListener('click', async () => {
+    if (!link.value) return;
+    try {
+      await navigator.clipboard.writeText(link.value);
+      status.textContent = 'Client link copied.';
+    } catch {
+      link.focus();
+      link.select();
+      status.textContent = 'Link selected. Use your device’s Copy command.';
+    }
+  });
+  update();
+})();
+</script>
+</body>
+</html>
