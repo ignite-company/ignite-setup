@@ -56,7 +56,7 @@ h2{font-size:clamp(2.2rem,5.25vw,4.28rem);margin:0 0 21px}
 .phase{position:relative;min-width:0;background:#151116;border:1px solid #4e3544;border-radius:12px;padding:15px 13px 13px}
 .phase:after{content:"→";position:absolute;right:-14px;top:44%;z-index:1;color:#ffaaa9;font-size:1rem;font-weight:850}.phase:last-child:after{display:none}
 .phase small{display:block;font-size:.65rem;margin-bottom:7px}.phase b{display:block;font-size:1.03rem;margin-bottom:3px}.phase p{margin:0;font-size:.82rem;color:#dfcdd8}
-.gate{margin:12px 0 0;color:#cbb8c4;font-size:.82rem}.gate strong{color:#fff0f2}
+.phase-feature{border-color:#bc4a5e;background:linear-gradient(135deg,#4a1b29,#24151e)}.phase-continue{border-color:#785064}.phase .phase-metric{color:#fff9fa;font-size:clamp(.93rem,2.15vw,1.38rem);line-height:1.12;font-weight:900;letter-spacing:-.035em;margin:8px 0 4px}.phase-metric span{color:#ffc2ca;font-size:.72em;font-weight:750;letter-spacing:0}.gate{margin:12px 0 0;color:#cbb8c4;font-size:.82rem}.gate strong{color:#fff0f2}
 .terms{display:grid;grid-template-columns:1.13fr 1fr 1fr;gap:1px;background:#674050;border:1px solid #674050;border-radius:var(--r);overflow:hidden}
 .terms article{background:#2c1622;padding:17px 16px;min-width:0}.terms b{display:block;margin-bottom:4px;font-size:1.02rem}.terms p{margin:0;font-size:.86rem;color:#f2dce8}
 footer{border-top:1px solid var(--line);color:#c7b6c1}.foot{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:16px 0}.foot a{font-size:.84rem;text-underline-offset:3px}
@@ -126,8 +126,8 @@ footer{border-top:1px solid var(--line);color:#c7b6c1}.foot{display:flex;justify
 <ol class="timeline">
 <li class="phase"><small>Kickoff</small><b>Get aligned</b><p>Job, area, assets, access.</p></li>
 <li class="phase"><small>Before launch</small><b>Build &amp; test</b><p>Ad, page and sample inquiry.</p></li>
-<li class="phase"><small>Days 1–60 from launch</small><b>Manage &amp; adjust</b><p>Delivery, lead quality, estimates.</p></li>
-<li class="phase"><small>Day 61 onward</small><b>Continue or hand off</b><p>$500/month if you continue.</p></li>
+<li class="phase phase-feature"><small>Days 1–60 from campaign launch</small><b>Active ad management</b><p class="phase-metric">3 post scripts<span> per week</span></p></li>
+<li class="phase phase-continue"><small>Day 61 onward</small><b>Continue or hand off</b><p class="phase-metric">$500<span> / month</span></p><p>Optional ongoing ad management.</p></li>
 </ol>
 <p class="gate"><strong>Launch needs:</strong> Access, assets, billing, approvals and platform review where required. Timing varies.</p>
 </section>
