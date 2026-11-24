@@ -135,6 +135,13 @@ footer{border-top:1px solid var(--line);color:#c7b6c1}.foot{display:flex;justify
  .follow-detail .sequence-footer,.follow-detail .gate{font-size:.73rem}
  .section-heading>p{font-size:.85rem}.terms article{padding:12px}.phase p{font-size:.77rem}
 }
+@media(min-width:651px){
+ .has-compact-flow .flow-toolbar{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid #594055}
+ .flow-toolbar button{min-width:82px;min-height:44px;border:1px solid #bd7387;background:#341c2b;color:#fff1f5;border-radius:9px;font:750 .9rem/1 Inter,Arial,sans-serif;cursor:pointer;padding:0 12px}
+ .flow-toolbar button:last-child{background:#ff858d;color:#28131c;border-color:#ff858d}.flow-toolbar button[aria-disabled=true]{opacity:.46;cursor:default}
+ .current-step{text-align:center;line-height:1.15}.current-step small,.current-step b{display:block}.current-step small{color:#ffb4bc;font-size:.75rem;margin-bottom:4px}.current-step b{font-size:1.1rem}
+ .has-compact-flow .flow-picker,.flow.has-compact-flow>.demo-hint,.flow.has-compact-flow>input{display:none}
+}
 </style>
 </head>
 <body>
@@ -193,19 +200,16 @@ footer{border-top:1px solid var(--line);color:#c7b6c1}.foot{display:flex;justify
 <p class="compact-caption">Ignite creates and runs the ad.</p>
 <div class="flow-caption"><span class="tag">Homeowner view</span><h3>A homeowner stops scrolling.</h3><p>We put one clear offer in front of homeowners in your service area and give them one next step.</p><div class="flow-output"><span>Offer + creative + targeting</span><i>↓</i><b>Click to the campaign page</b></div></div>
 <div class="mock phone"><div class="mock-top"><span class="avatar">K</span><span><b>Example Remodeling Co.</b><small>Sponsored · Sample ad</small></span></div><div class="ad-visual" aria-label="Stylized illustration of a kitchen" role="img"><svg viewBox="0 0 320 118" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><defs><linearGradient id="wall" x2="0" y2="1"><stop stop-color="#77505a"/><stop offset="1" stop-color="#34202d"/></linearGradient></defs><path fill="url(#wall)" d="M0 0h320v118H0z"/><path fill="#88636c" d="M12 16h73v46H12zm222 0h73v46h-73z"/><path fill="#f7c8af" d="M101 14h119v48H101z"/><path fill="#784756" d="M107 19h50v37h-50zm57 0h50v37h-50z"/><path fill="#e2a583" d="M24 76h270v10H24z"/><path fill="#684052" d="M32 86h259v32H32z"/><path fill="#bc7a77" d="M58 96h206v22H58z"/><path fill="none" stroke="#482131" stroke-width="2" d="M63 16v46m201-46v46m-139 34v22m73-22v22"/></svg></div><div class="mock-body"><b>Planning a kitchen remodel?</b><p>Tell us what you want to change and find out if we’re a fit.</p><span class="mock-cta">Request a walkthrough <i>→</i></span></div></div>
-<div class="demo-next-row"><button class="demo-next" type="button" data-next="page" hidden>Next: Apply on mobile <span aria-hidden="true">→</span></button></div>
 </div>
 <div class="flow-panel" tabindex="-1" role="region" aria-label="Apply on mobile" data-panel="page">
 <p class="compact-caption">Ignite builds the page and intake form.</p>
 <div class="flow-caption"><span class="tag">Homeowner view</span><h3>The click becomes an inquiry.</h3><p>The landing page answers the basics. A short form collects what your team needs before reaching out.</p><div class="flow-output"><span>Campaign page + screening questions</span><i>↓</i><b>Contact details and project context</b></div></div>
 <div class="mock phone"><div class="mock-top"><span class="avatar">K</span><span><b>Example Remodeling Co.</b><small>Sample landing page</small></span></div><div class="mock-body"><span class="mock-kicker">KITCHEN REMODELING</span><b>Tell us about your kitchen.</b><div class="form-mock"><div><small>Project</small><span>Full kitchen remodel</span></div><div><small>Location</small><span>Inside service area</span></div><div><small>Timing</small><span>Next 2–3 months</span></div></div><p class="example-consent">Contact details and channel permissions collected here.</p><span class="mock-cta">Submit request <i>→</i></span></div></div>
-<div class="demo-next-row"><button class="demo-next" type="button" data-next="lead" hidden>Next: Route the inquiry <span aria-hidden="true">→</span></button></div>
 </div>
 <div class="flow-panel" tabindex="-1" role="region" aria-label="Route the inquiry" data-panel="lead">
 <p class="compact-caption">Your team reviews the inquiry and confirms fit.</p>
 <div class="flow-caption"><span class="tag">Your team’s inbox</span><h3>Your team gets the whole picture.</h3><p>Fit criteria are agreed before launch. Your point person gets the inquiry, sees the context, and confirms fit.</p><div class="flow-output"><span>Lead record + team alert</span><i>↓</i><b>Assigned to someone who can act</b></div></div>
 <div class="mock crm"><div class="mock-top"><span class="avatar">↗</span><span><b>New inquiry</b><small>Sample lead inbox</small></span><span class="mock-state">Needs review</span></div><div class="mock-body"><b>Sample homeowner</b><div class="record"><span>Source</span><strong>Kitchen remodel ad</strong><span>Project</span><strong>Full kitchen remodel</strong><span>Timing</span><strong>Next 2–3 months</strong><span>Owner</span><strong>Intake lead</strong></div><div class="mock-notice">↳ New inquiry alert sent to assigned teammate</div></div></div>
-<div class="demo-next-row"><button class="demo-next" type="button" data-next="follow" hidden>Next: See the follow-up <span aria-hidden="true">→</span></button></div>
 </div>
 <div class="flow-panel" tabindex="-1" role="region" aria-label="Keep it moving" data-panel="follow">
 <p class="compact-caption">Permitted channels only. Replies go to your team.</p>
@@ -228,7 +232,6 @@ footer{border-top:1px solid var(--line);color:#c7b6c1}.foot{display:flex;justify
 </fieldset>
 <p class="gate">Illustrative timing and copy. Channels, timing and stop rules are confirmed in scope and used only where permission allows.</p>
 </details>
-<div class="demo-next-row"><button class="demo-next" type="button" data-next="estimate" hidden>Next: Run the estimate <span aria-hidden="true">→</span></button></div>
 </div>
 <div class="flow-panel" tabindex="-1" role="region" aria-label="Run the estimate" data-panel="estimate">
 <p class="compact-caption">Your team runs the walkthrough, quotes, and closes.</p>
@@ -297,27 +300,6 @@ footer{border-top:1px solid var(--line);color:#c7b6c1}.foot{display:flex;justify
 </script>
 <script>
 (() => {
-  for (const button of document.querySelectorAll('button[data-next]')) {
-    button.hidden = false;
-    button.addEventListener('click', () => {
-      const next = button.dataset.next;
-      const radio = document.getElementById('stage-' + next);
-      const panel = document.querySelector('[data-panel="' + next + '"]');
-      radio.checked = true;
-      panel.focus({preventScroll: true});
-      if (window.matchMedia('(min-width: 651px)').matches) return;
-      const inset = Number.parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 14;
-      const top = panel.getBoundingClientRect().top;
-      // Keep a preview already at the top in place; otherwise reveal its first line.
-      if (top < inset || top > inset + 36) {
-        window.scrollTo({top: Math.max(0, Math.round(window.scrollY + top - inset)), behavior: 'instant'});
-      }
-    });
-  }
-})();
-</script>
-<script>
-(() => {
   const stages = [...document.querySelectorAll('input[name="stage"]')];
   const bar = document.querySelector('.flow-toolbar');
   const titles = stages.map(s => document.querySelector('[data-panel="' + s.id.slice(6) + '"]').getAttribute('aria-label'));
@@ -340,7 +322,6 @@ footer{border-top:1px solid var(--line);color:#c7b6c1}.foot{display:flex;justify
   back.addEventListener('click', () => move(-1));
   next.addEventListener('click', () => move(1));
   for (const stage of stages) stage.addEventListener('change', update);
-  for (const button of document.querySelectorAll('button[data-next]')) button.addEventListener('click', update);
   document.querySelector('.flow').classList.add('has-compact-flow');
   bar.hidden = false;
   update();
