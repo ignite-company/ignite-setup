@@ -74,7 +74,7 @@ footer{border-top:1px solid var(--line);color:#c7b6c1}.foot{display:flex;justify
 #stage-ad:checked~.flow-picker [for=stage-ad],#stage-page:checked~.flow-picker [for=stage-page],#stage-lead:checked~.flow-picker [for=stage-lead],#stage-follow:checked~.flow-picker [for=stage-follow],#stage-estimate:checked~.flow-picker [for=stage-estimate],#branch-quiet:checked~.branch-picker [for=branch-quiet],#branch-booked:checked~.branch-picker [for=branch-booked]{background:#592635;border-color:#f58292;color:#fff}
 #stage-ad:focus-visible~.flow-picker [for=stage-ad],#stage-page:focus-visible~.flow-picker [for=stage-page],#stage-lead:focus-visible~.flow-picker [for=stage-lead],#stage-follow:focus-visible~.flow-picker [for=stage-follow],#stage-estimate:focus-visible~.flow-picker [for=stage-estimate],#branch-quiet:focus-visible~.branch-picker [for=branch-quiet],#branch-booked:focus-visible~.branch-picker [for=branch-booked]{outline:2px solid #fff;outline-offset:2px}
 .flow-panel{display:none;min-width:0;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:clamp(23px,6vw,70px);min-height:365px;padding:clamp(9px,3vw,27px)}
-#stage-ad:checked~[data-panel=ad],#stage-page:checked~[data-panel=page],#stage-lead:checked~[data-panel=lead],#stage-follow:checked~[data-panel=follow],#stage-estimate:checked~[data-panel=estimate]{display:grid}
+#stage-ad:checked~.flow-deck>[data-panel=ad],#stage-page:checked~.flow-deck>[data-panel=page],#stage-lead:checked~.flow-deck>[data-panel=lead],#stage-follow:checked~.flow-deck>[data-panel=follow],#stage-estimate:checked~.flow-deck>[data-panel=estimate]{display:grid}
 .flow-caption h3{font-size:clamp(1.8rem,5.2vw,3.45rem);margin:17px 0 10px}
 .flow-caption p{color:#e2cfd9;margin-bottom:15px}.flow-output{border-left:2px solid var(--pink);padding-left:10px;display:grid;font-size:.87rem;gap:2px}.flow-output span{color:#dfb2c3}.flow-output i{color:var(--pink);font-style:normal;line-height:1}
 .mock{width:100%;background:#100d12;border:1px solid #715263;border-radius:16px;overflow:hidden;box-shadow:0 16px 35px #0006;color:#fff0f7;justify-self:center}
@@ -115,6 +115,11 @@ footer{border-top:1px solid var(--line);color:#c7b6c1}.foot{display:flex;justify
  .flow-picker label:last-child{grid-column:1/-1}.demo-next-row{width:100%;margin-top:1px}.demo-next{width:100%}
  .branch-picker label{display:grid;place-items:center;font-size:.82rem}.mock-body{padding:10px}.ad-visual svg{height:84px}
  .sequence-card{padding:8px}.sequence-items{gap:7px}.sequence-footer{gap:5px;margin-top:8px}
+}
+@media(min-width:651px){
+ .flow-deck{display:grid;grid-template-columns:minmax(0,1fr)}
+ .flow-deck>.flow-panel{display:grid;grid-area:1/1;visibility:hidden;pointer-events:none;align-items:start;grid-template-rows:1fr auto}
+ #stage-ad:checked~.flow-deck>[data-panel=ad],#stage-page:checked~.flow-deck>[data-panel=page],#stage-lead:checked~.flow-deck>[data-panel=lead],#stage-follow:checked~.flow-deck>[data-panel=follow],#stage-estimate:checked~.flow-deck>[data-panel=estimate]{visibility:visible;pointer-events:auto}
 }
 </style>
 </head>
@@ -164,6 +169,7 @@ footer{border-top:1px solid var(--line);color:#c7b6c1}.foot{display:flex;justify
 <label for="stage-follow"><small>04 / Follow up</small><b>Keep it moving</b></label>
 <label for="stage-estimate"><small>05 / Close</small><b>Run the estimate</b></label>
 </div>
+<div class="flow-deck">
 <div class="flow-panel" tabindex="-1" role="region" aria-label="See the ad" data-panel="ad">
 <div class="flow-caption"><span class="tag">Homeowner view</span><h3>A homeowner stops scrolling.</h3><p>We put one clear offer in front of homeowners in your service area and give them one next step.</p><div class="flow-output"><span>Offer + creative + targeting</span><i>↓</i><b>Click to the campaign page</b></div></div>
 <div class="mock phone"><div class="mock-top"><span class="avatar">K</span><span><b>Example Remodeling Co.</b><small>Sponsored · Sample ad</small></span></div><div class="ad-visual" aria-label="Stylized illustration of a kitchen" role="img"><svg viewBox="0 0 320 118" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><defs><linearGradient id="wall" x2="0" y2="1"><stop stop-color="#77505a"/><stop offset="1" stop-color="#34202d"/></linearGradient></defs><path fill="url(#wall)" d="M0 0h320v118H0z"/><path fill="#88636c" d="M12 16h73v46H12zm222 0h73v46h-73z"/><path fill="#f7c8af" d="M101 14h119v48H101z"/><path fill="#784756" d="M107 19h50v37h-50zm57 0h50v37h-50z"/><path fill="#e2a583" d="M24 76h270v10H24z"/><path fill="#684052" d="M32 86h259v32H32z"/><path fill="#bc7a77" d="M58 96h206v22H58z"/><path fill="none" stroke="#482131" stroke-width="2" d="M63 16v46m201-46v46m-139 34v22m73-22v22"/></svg></div><div class="mock-body"><b>Planning a kitchen remodel?</b><p>Tell us what you want to change and find out if we’re a fit.</p><span class="mock-cta">Request a walkthrough <i>→</i></span></div></div>
@@ -187,6 +193,7 @@ footer{border-top:1px solid var(--line);color:#c7b6c1}.foot{display:flex;justify
 <div class="flow-panel" tabindex="-1" role="region" aria-label="Run the estimate" data-panel="estimate">
 <div class="flow-caption"><span class="tag">Your team</span><h3>Turn the opportunity into a job.</h3><p>Your team runs the walkthrough, prices the scope, sends the estimate, and closes. The system keeps the next action visible.</p><div class="flow-output"><span>Consultation + walkthrough + quote</span><i>↓</i><b>Outcome recorded by your team</b></div></div>
 <div class="mock crm"><div class="mock-top"><span class="avatar">✓</span><span><b>Kitchen remodel opportunity</b><small>Sample estimate pipeline</small></span></div><ol class="mock-body pipeline"><li><span>✓</span><div><b>Walkthrough booked</b><small>Appointment confirmed</small></div></li><li><span>✓</span><div><b>Estimate sent</b><small>Scope and price from your team</small></div></li><li><span>→</span><div><b>Decision pending</b><small>Record accepted, declined, or still in progress</small></div></li></ol></div>
+</div>
 </div>
 </fieldset>
 </section>
@@ -271,6 +278,7 @@ footer{border-top:1px solid var(--line);color:#c7b6c1}.foot{display:flex;justify
       const panel = document.querySelector('[data-panel="' + next + '"]');
       radio.checked = true;
       panel.focus({preventScroll: true});
+      if (window.matchMedia('(min-width: 651px)').matches) return;
       const inset = Number.parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 14;
       const top = panel.getBoundingClientRect().top;
       // Keep a preview already at the top in place; otherwise reveal its first line.
