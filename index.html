@@ -100,7 +100,7 @@ footer{border-top:1px solid var(--line);color:#c7b6c1}.foot{display:flex;justify
 .flow-picker label,.branch-picker label{position:relative;min-height:46px;padding-right:27px;box-shadow:inset 0 -2px #140a12}
 .flow-picker label:after,.branch-picker label:after{content:"›";position:absolute;right:10px;top:50%;transform:translateY(-50%);color:#ffd1d6;font-size:1.15rem}
 #stage-ad:checked~.flow-picker [for=stage-ad]:after,#stage-page:checked~.flow-picker [for=stage-page]:after,#stage-lead:checked~.flow-picker [for=stage-lead]:after,#stage-follow:checked~.flow-picker [for=stage-follow]:after,#stage-estimate:checked~.flow-picker [for=stage-estimate]:after,#branch-quiet:checked~.branch-picker [for=branch-quiet]:after,#branch-booked:checked~.branch-picker [for=branch-booked]:after{content:"✓";color:#fff;font-size:.82rem}
-.flow-panel:focus-visible,.demo-next:focus-visible{outline:2px solid #fff;outline-offset:4px}.demo-next-row{grid-column:1/-1;justify-self:end}.demo-next[hidden]{display:none}
+.flow{overflow-anchor:none}.flow-panel:focus-visible,.demo-next:focus-visible{outline:2px solid #fff;outline-offset:4px}.demo-next-row{grid-column:1/-1;justify-self:end}.demo-next[hidden]{display:none}
 @media(max-width:650px){
  html{scroll-padding-top:14px}
  header{position:static}.wrap{width:calc(100% - 28px)}.bar{min-height:auto;padding:8px 0 3px;align-items:flex-start;flex-direction:column;gap:1px}
@@ -164,27 +164,27 @@ footer{border-top:1px solid var(--line);color:#c7b6c1}.foot{display:flex;justify
 <label for="stage-follow"><small>04 / Follow up</small><b>Keep it moving</b></label>
 <label for="stage-estimate"><small>05 / Close</small><b>Run the estimate</b></label>
 </div>
-<div class="flow-panel" tabindex="-1" data-panel="ad">
+<div class="flow-panel" tabindex="-1" role="region" aria-label="See the ad" data-panel="ad">
 <div class="flow-caption"><span class="tag">Homeowner view</span><h3>A homeowner stops scrolling.</h3><p>We put one clear offer in front of homeowners in your service area and give them one next step.</p><div class="flow-output"><span>Offer + creative + targeting</span><i>↓</i><b>Click to the campaign page</b></div></div>
 <div class="mock phone"><div class="mock-top"><span class="avatar">K</span><span><b>Example Remodeling Co.</b><small>Sponsored · Sample ad</small></span></div><div class="ad-visual" aria-label="Stylized illustration of a kitchen" role="img"><svg viewBox="0 0 320 118" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><defs><linearGradient id="wall" x2="0" y2="1"><stop stop-color="#77505a"/><stop offset="1" stop-color="#34202d"/></linearGradient></defs><path fill="url(#wall)" d="M0 0h320v118H0z"/><path fill="#88636c" d="M12 16h73v46H12zm222 0h73v46h-73z"/><path fill="#f7c8af" d="M101 14h119v48H101z"/><path fill="#784756" d="M107 19h50v37h-50zm57 0h50v37h-50z"/><path fill="#e2a583" d="M24 76h270v10H24z"/><path fill="#684052" d="M32 86h259v32H32z"/><path fill="#bc7a77" d="M58 96h206v22H58z"/><path fill="none" stroke="#482131" stroke-width="2" d="M63 16v46m201-46v46m-139 34v22m73-22v22"/></svg></div><div class="mock-body"><b>Planning a kitchen remodel?</b><p>Tell us what you want to change and find out if we’re a fit.</p><span class="mock-cta">Request a walkthrough <i>→</i></span></div></div>
 <div class="demo-next-row"><button class="demo-next" type="button" data-next="page" hidden>Next: Apply on mobile <span aria-hidden="true">→</span></button></div>
 </div>
-<div class="flow-panel" tabindex="-1" data-panel="page">
+<div class="flow-panel" tabindex="-1" role="region" aria-label="Apply on mobile" data-panel="page">
 <div class="flow-caption"><span class="tag">Homeowner view</span><h3>The click becomes an inquiry.</h3><p>The landing page answers the basics. A short form collects what your team needs before reaching out.</p><div class="flow-output"><span>Campaign page + screening questions</span><i>↓</i><b>Contact details and project context</b></div></div>
 <div class="mock phone"><div class="mock-top"><span class="avatar">K</span><span><b>Example Remodeling Co.</b><small>Sample landing page</small></span></div><div class="mock-body"><span class="mock-kicker">KITCHEN REMODELING</span><b>Tell us about your kitchen.</b><div class="form-mock"><div><small>Project</small><span>Full kitchen remodel</span></div><div><small>Location</small><span>Inside service area</span></div><div><small>Timing</small><span>Next 2–3 months</span></div></div><p class="example-consent">Contact details and channel permissions collected here.</p><span class="mock-cta">Submit request <i>→</i></span></div></div>
 <div class="demo-next-row"><button class="demo-next" type="button" data-next="lead" hidden>Next: Route the inquiry <span aria-hidden="true">→</span></button></div>
 </div>
-<div class="flow-panel" tabindex="-1" data-panel="lead">
+<div class="flow-panel" tabindex="-1" role="region" aria-label="Route the inquiry" data-panel="lead">
 <div class="flow-caption"><span class="tag">Your team’s inbox</span><h3>Your team gets the whole picture.</h3><p>Fit criteria are agreed before launch. Your point person gets the inquiry, sees the context, and confirms fit.</p><div class="flow-output"><span>Lead record + team alert</span><i>↓</i><b>Assigned to someone who can act</b></div></div>
 <div class="mock crm"><div class="mock-top"><span class="avatar">↗</span><span><b>New inquiry</b><small>Sample lead inbox</small></span><span class="mock-state">Needs review</span></div><div class="mock-body"><b>Sample homeowner</b><div class="record"><span>Source</span><strong>Kitchen remodel ad</strong><span>Project</span><strong>Full kitchen remodel</strong><span>Timing</span><strong>Next 2–3 months</strong><span>Owner</span><strong>Intake lead</strong></div><div class="mock-notice">↳ New inquiry alert sent to assigned teammate</div></div></div>
 <div class="demo-next-row"><button class="demo-next" type="button" data-next="follow" hidden>Next: See the follow-up <span aria-hidden="true">→</span></button></div>
 </div>
-<div class="flow-panel" tabindex="-1" data-panel="follow">
+<div class="flow-panel" tabindex="-1" role="region" aria-label="Keep it moving" data-panel="follow">
 <div class="flow-caption"><span class="tag">Opted-in automation</span><h3>Give them a clear next step.</h3><p>Send an acknowledgment on permitted channels and route replies to your team. Booking changes what happens next.</p><div class="flow-output"><span>Confirmation + follow-up</span><i>↓</i><b><a href="#follow-up">See both follow-up paths ↓</a></b></div></div>
 <div class="mock crm"><div class="mock-top"><span class="avatar">→</span><span><b>Kitchen remodel inquiry</b><small>Sample follow-up automation</small></span></div><div class="mock-body"><div class="sms-preview">Hi! We got your kitchen remodel request. Here’s where you can pick a time for a quick call: [booking link]</div><div class="record"><span>Books</span><strong>Send appointment details</strong><span>No booking</span><strong>Send agreed follow-up</strong><span>Replies</span><strong>Hand off to your team</strong></div></div></div>
 <div class="demo-next-row"><button class="demo-next" type="button" data-next="estimate" hidden>Next: Run the estimate <span aria-hidden="true">→</span></button></div>
 </div>
-<div class="flow-panel" tabindex="-1" data-panel="estimate">
+<div class="flow-panel" tabindex="-1" role="region" aria-label="Run the estimate" data-panel="estimate">
 <div class="flow-caption"><span class="tag">Your team</span><h3>Turn the opportunity into a job.</h3><p>Your team runs the walkthrough, prices the scope, sends the estimate, and closes. The system keeps the next action visible.</p><div class="flow-output"><span>Consultation + walkthrough + quote</span><i>↓</i><b>Outcome recorded by your team</b></div></div>
 <div class="mock crm"><div class="mock-top"><span class="avatar">✓</span><span><b>Kitchen remodel opportunity</b><small>Sample estimate pipeline</small></span></div><ol class="mock-body pipeline"><li><span>✓</span><div><b>Walkthrough booked</b><small>Appointment confirmed</small></div></li><li><span>✓</span><div><b>Estimate sent</b><small>Scope and price from your team</small></div></li><li><span>→</span><div><b>Decision pending</b><small>Record accepted, declined, or still in progress</small></div></li></ol></div>
 </div>
@@ -270,8 +270,13 @@ footer{border-top:1px solid var(--line);color:#c7b6c1}.foot{display:flex;justify
       const radio = document.getElementById('stage-' + next);
       const panel = document.querySelector('[data-panel="' + next + '"]');
       radio.checked = true;
-      panel.focus({preventScroll:true});
-      panel.scrollIntoView({block:'start'});
+      panel.focus({preventScroll: true});
+      const inset = Number.parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 14;
+      const top = panel.getBoundingClientRect().top;
+      // Keep a preview already at the top in place; otherwise reveal its first line.
+      if (top < inset || top > inset + 36) {
+        window.scrollTo({top: Math.max(0, Math.round(window.scrollY + top - inset)), behavior: 'instant'});
+      }
     });
   }
 })();
