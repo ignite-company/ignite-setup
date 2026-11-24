@@ -18,16 +18,22 @@ label{display:block;font-weight:750;margin-bottom:6px}input{width:100%;padding:1
 .actions button:first-child{background:var(--pink);color:#21121b;border-color:var(--pink)}button:disabled{opacity:.55;cursor:not-allowed}a[hidden]{display:none}
 #link{font-family:monospace;font-size:.89rem}#status{min-height:1.5em;margin:7px 0 0;color:var(--pink);font-size:.9rem}
 :focus-visible{outline:2px solid var(--pink);outline-offset:3px}
-</style>
+.brief-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}.brief-fields small{font-size:.7rem;color:#e9bdcd}select{width:100%;min-height:46px;padding:9px;background:#100c10;border:1px solid #9c7186;color:#fffafb;border-radius:10px;font:inherit}@media(max-width:470px){.brief-fields{grid-template-columns:1fr;gap:9px}}</style>
 </head>
 <body>
 <main>
   <span class="brand">Ignite Co. / Presenter</span>
   <h1>Personalize your setup deck</h1>
-  <p>Enter a company name, then copy or open the link you’ll share with your client.</p>
+  <p>Add a few details to tailor the demo. Anyone with the link can see what you enter, so use public business details only.</p>
   <form id="presentation" novalidate>
-    <label for="company">Company name</label>
+    <label for="company">Business name</label>
     <input id="company" type="text" maxlength="100" placeholder="e.g. Carroll Construction" autocomplete="organization">
+    <div class="brief-fields">
+      <div><label for="service">Target service <small>optional</small></label><input id="service" type="text" maxlength="80" placeholder="e.g. Commercial cleaning"></div>
+      <div><label for="area">Service area <small>optional</small></label><input id="area" type="text" maxlength="70" placeholder="e.g. North Jersey"></div>
+      <div><label for="action">Next step</label><select id="action"><option value="call">Book a call</option><option value="quote">Request a quote</option><option value="visit">Schedule an on-site visit</option><option value="reply">Reply for details</option></select></div>
+      <div><label for="cycle">Typical sales cycle</label><select id="cycle"><option value="standard">A few weeks</option><option value="fast">Days</option><option value="long">Months</option></select></div>
+    </div>
     <div class="actions">
       <button id="copy" type="button" disabled>Copy client link</button>
       <a id="open" target="_blank" rel="noopener noreferrer" hidden>Open presentation</a>
@@ -44,10 +50,16 @@ label{display:block;font-weight:750;margin-bottom:6px}input{width:100%;padding:1
   const copy = document.getElementById('copy');
   const open = document.getElementById('open');
   const status = document.getElementById('status');
+  const fields = ['service', 'area', 'action', 'cycle'].map(id => document.getElementById(id));
+  const clean = (value, limit) => Array.from(value.replace(/[\u0000-\u001f\u007f]/g, ' ').trim()).slice(0, limit).join('');
   const update = () => {
-    const name = company.value.replace(/[\u0000-\u001f\u007f]/g, ' ').trim();
+    const name = clean(company.value, 100);
     const url = new URL('/', location.origin);
-    url.hash = new URLSearchParams({for: name}).toString();
+    const [service, area, action, cycle] = fields.map(field => field.value);
+    const brief = new URLSearchParams({for: name, v: '1', action, cycle});
+    if (clean(service, 80)) brief.set('service', clean(service, 80));
+    if (clean(area, 70)) brief.set('area', clean(area, 70));
+    url.hash = brief.toString();
     link.value = name ? url.href : '';
     open.hidden = !name;
     if (name) open.href = link.value;
@@ -55,7 +67,10 @@ label{display:block;font-weight:750;margin-bottom:6px}input{width:100%;padding:1
     copy.disabled = !name;
     status.textContent = '';
   };
-  company.addEventListener('input', update);
+  for (const field of [company, ...fields]) {
+    field.addEventListener('input', update);
+    field.addEventListener('change', update);
+  }
   document.getElementById('presentation').addEventListener('submit', e => {
     e.preventDefault();
     if (link.value) open.click();

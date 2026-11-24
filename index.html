@@ -161,6 +161,11 @@ footer{border-top:1px solid var(--line);color:#c7b6c1}.foot{display:flex;justify
 #cadence-now:checked~.cadence-rail [for=cadence-now],#cadence-days:checked~.cadence-rail [for=cadence-days],#cadence-weeks:checked~.cadence-rail [for=cadence-weeks],#cadence-months:checked~.cadence-rail [for=cadence-months]{background:#592635;border-color:#f58292}
 #cadence-now:focus-visible~.cadence-rail [for=cadence-now],#cadence-days:focus-visible~.cadence-rail [for=cadence-days],#cadence-weeks:focus-visible~.cadence-rail [for=cadence-weeks],#cadence-months:focus-visible~.cadence-rail [for=cadence-months]{outline:2px solid #fff;outline-offset:1px}
 }
+.brief-banner,.brief-message,.brief-rule{display:none}
+.custom-brief .industry-picker,.custom-brief input[name=industry],.custom-brief .nurture [data-industry],.custom-brief .flow .ad-visual{display:none}
+.custom-brief .brief-message,.custom-brief .brief-rule{display:block}
+.custom-brief .brief-banner{display:grid;gap:3px;padding:14px 12px;background:linear-gradient(125deg,#73344c,#321b2c);overflow-wrap:anywhere}
+.brief-banner small{color:#ffe1e6}.custom-brief [data-brief]{overflow-wrap:anywhere}.custom-brief .mock-top>span:nth-child(2){min-width:0}
 </style>
 </head>
 <body>
@@ -193,7 +198,7 @@ footer{border-top:1px solid var(--line);color:#c7b6c1}.foot{display:flex;justify
 </div></section>
 <div class="wrap">
 <section class="section" id="journey" aria-labelledby="journey-title">
-<div class="section-heading"><div><p class="eyebrow">01 / The interactive walkthrough</p><h2 id="journey-title">Follow one lead.</h2></div><p>Example: kitchen remodeling.</p></div>
+<div class="section-heading"><div><p class="eyebrow">01 / The interactive walkthrough</p><h2 id="journey-title">Follow one lead.</h2></div><p><span data-brief="example">Example: kitchen remodeling.</span></p></div>
 <fieldset class="demo flow">
 <legend class="sr-only">Choose a stage to see what happens</legend>
 <input class="sr-only" type="radio" name="stage" id="stage-ad" checked>
@@ -217,41 +222,41 @@ footer{border-top:1px solid var(--line);color:#c7b6c1}.foot{display:flex;justify
 <div class="flow-deck">
 <div class="flow-panel" tabindex="-1" role="region" aria-label="See the ad" data-panel="ad">
 <p class="compact-caption">Ignite creates and runs the ad.</p>
-<div class="flow-caption"><span class="tag">Homeowner view</span><h3>A homeowner stops scrolling.</h3><p>We put one clear offer in front of homeowners in your service area and give them one next step.</p><div class="flow-output"><span>Offer + creative + targeting</span><i>↓</i><b>Click to the campaign page</b></div></div>
-<div class="mock phone"><div class="mock-top"><span class="avatar">K</span><span><b>Example Remodeling Co.</b><small>Sponsored · Sample ad</small></span></div><div class="ad-visual" aria-label="Stylized illustration of a kitchen" role="img"><svg viewBox="0 0 320 118" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><defs><linearGradient id="wall" x2="0" y2="1"><stop stop-color="#77505a"/><stop offset="1" stop-color="#34202d"/></linearGradient></defs><path fill="url(#wall)" d="M0 0h320v118H0z"/><path fill="#88636c" d="M12 16h73v46H12zm222 0h73v46h-73z"/><path fill="#f7c8af" d="M101 14h119v48H101z"/><path fill="#784756" d="M107 19h50v37h-50zm57 0h50v37h-50z"/><path fill="#e2a583" d="M24 76h270v10H24z"/><path fill="#684052" d="M32 86h259v32H32z"/><path fill="#bc7a77" d="M58 96h206v22H58z"/><path fill="none" stroke="#482131" stroke-width="2" d="M63 16v46m201-46v46m-139 34v22m73-22v22"/></svg></div><div class="mock-body"><b>Planning a kitchen remodel?</b><p>Tell us what you want to change and find out if we’re a fit.</p><span class="mock-cta">Request a walkthrough <i>→</i></span></div></div>
+<div class="flow-caption"><span class="tag">Homeowner view</span><h3><span data-brief="audience-title">A homeowner stops scrolling.</span></h3><p><span data-brief="audience-body">We put one clear offer in front of homeowners in your service area and give them one next step.</span></p><div class="flow-output"><span>Offer + creative + targeting</span><i>↓</i><b>Click to the campaign page</b></div></div>
+<div class="mock phone"><div class="mock-top"><span class="avatar">K</span><span><b><span data-brief="name">Example Remodeling Co.</span></b><small>Sponsored · Sample ad</small></span></div><div class="brief-banner"><b data-brief="service"></b><small data-brief="area-line"></small></div><div class="ad-visual" aria-label="Stylized illustration of a kitchen" role="img"><svg viewBox="0 0 320 118" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><defs><linearGradient id="wall" x2="0" y2="1"><stop stop-color="#77505a"/><stop offset="1" stop-color="#34202d"/></linearGradient></defs><path fill="url(#wall)" d="M0 0h320v118H0z"/><path fill="#88636c" d="M12 16h73v46H12zm222 0h73v46h-73z"/><path fill="#f7c8af" d="M101 14h119v48H101z"/><path fill="#784756" d="M107 19h50v37h-50zm57 0h50v37h-50z"/><path fill="#e2a583" d="M24 76h270v10H24z"/><path fill="#684052" d="M32 86h259v32H32z"/><path fill="#bc7a77" d="M58 96h206v22H58z"/><path fill="none" stroke="#482131" stroke-width="2" d="M63 16v46m201-46v46m-139 34v22m73-22v22"/></svg></div><div class="mock-body"><b><span data-brief="ad-title">Planning a kitchen remodel?</span></b><p><span data-brief="ad-body">Tell us what you want to change and find out if we’re a fit.</span></p><span class="mock-cta"><span data-brief="action">Request a walkthrough</span> <i>→</i></span></div></div>
 </div>
 <div class="flow-panel" tabindex="-1" role="region" aria-label="Apply on mobile" data-panel="page">
 <p class="compact-caption">Ignite builds the page and intake form.</p>
 <div class="flow-caption"><span class="tag">Homeowner view</span><h3>The click becomes an inquiry.</h3><p>The landing page answers the basics. A short form collects what your team needs before reaching out.</p><div class="flow-output"><span>Campaign page + screening questions</span><i>↓</i><b>Contact details and project context</b></div></div>
-<div class="mock phone"><div class="mock-top"><span class="avatar">K</span><span><b>Example Remodeling Co.</b><small>Sample landing page</small></span></div><div class="mock-body"><span class="mock-kicker">KITCHEN REMODELING</span><b>Tell us about your kitchen.</b><div class="form-mock"><div><small>Project</small><span>Full kitchen remodel</span></div><div><small>Location</small><span>Inside service area</span></div><div><small>Timing</small><span>Next 2–3 months</span></div></div><p class="example-consent">Contact details and channel permissions collected here.</p><span class="mock-cta">Submit request <i>→</i></span></div></div>
+<div class="mock phone"><div class="mock-top"><span class="avatar">K</span><span><b><span data-brief="name">Example Remodeling Co.</span></b><small>Sample landing page</small></span></div><div class="mock-body"><span class="mock-kicker"><span data-brief="service">KITCHEN REMODELING</span></span><b><span data-brief="form-title">Tell us about your kitchen.</span></b><div class="form-mock"><div><small>Project</small><span><span data-brief="service">Full kitchen remodel</span></span></div><div><small>Location</small><span><span data-brief="area">Inside service area</span></span></div><div><small>Timing</small><span>Next 2–3 months</span></div></div><p class="example-consent">Contact details and channel permissions collected here.</p><span class="mock-cta">Submit request <i>→</i></span></div></div>
 </div>
 <div class="flow-panel" tabindex="-1" role="region" aria-label="Route the inquiry" data-panel="lead">
 <p class="compact-caption">Your team reviews the inquiry and confirms fit.</p>
 <div class="flow-caption"><span class="tag">Your team’s inbox</span><h3>Your team gets the whole picture.</h3><p>Fit criteria are agreed before launch. Your point person gets the inquiry, sees the context, and confirms fit.</p><div class="flow-output"><span>Lead record + team alert</span><i>↓</i><b>Assigned to someone who can act</b></div></div>
-<div class="mock crm"><div class="mock-top"><span class="avatar">↗</span><span><b>New inquiry</b><small>Sample lead inbox</small></span><span class="mock-state">Needs review</span></div><div class="mock-body"><b>Sample homeowner</b><div class="record"><span>Source</span><strong>Kitchen remodel ad</strong><span>Project</span><strong>Full kitchen remodel</strong><span>Timing</span><strong>Next 2–3 months</strong><span>Owner</span><strong>Intake lead</strong></div><div class="mock-notice">↳ New inquiry alert sent to assigned teammate</div></div></div>
+<div class="mock crm"><div class="mock-top"><span class="avatar">↗</span><span><b>New inquiry</b><small>Sample lead inbox</small></span><span class="mock-state">Needs review</span></div><div class="mock-body"><b><span data-brief="lead-name">Sample homeowner</span></b><div class="record"><span>Source</span><strong><span data-brief="ad-source">Kitchen remodel ad</span></strong><span>Project</span><strong><span data-brief="service">Full kitchen remodel</span></strong><span>Timing</span><strong>Next 2–3 months</strong><span>Owner</span><strong>Intake lead</strong></div><div class="mock-notice">↳ New inquiry alert sent to assigned teammate</div></div></div>
 </div>
 <div class="flow-panel" tabindex="-1" role="region" aria-label="Keep it moving" data-panel="follow">
 <p class="compact-caption">Replies go to your team. <a href="#follow-up">See the follow-up timeline ↓</a></p>
 <div class="flow-caption"><span class="tag">Opted-in automation</span><h3>Give them a clear next step.</h3><p>Send an acknowledgment on permitted channels and route replies to your team. Booking changes what happens next.</p><div class="flow-output"><span>Confirmation + follow-up</span><i>↓</i><b><a href="#follow-up">See the follow-up timeline ↓</a></b></div></div>
-<div class="mock crm"><div class="mock-top"><span class="avatar">→</span><span><b>Kitchen remodel inquiry</b><small>Sample follow-up automation</small></span></div><div class="mock-body"><div class="sms-preview">Hi! We got your kitchen remodel request. Here’s where you can pick a time for a quick call: [booking link]</div><div class="record"><span>Books</span><strong>Send appointment details</strong><span>No booking</span><strong>Send agreed follow-up</strong><span>Replies</span><strong>Hand off to your team</strong></div></div></div>
+<div class="mock crm"><div class="mock-top"><span class="avatar">→</span><span><b><span data-brief="follow-title">Kitchen remodel inquiry</span></b><small>Sample follow-up automation</small></span></div><div class="mock-body"><div class="sms-preview"><span data-brief="first">Hi! We got your kitchen remodel request. Here’s where you can pick a time for a quick call: [booking link]</span></div><div class="record"><span>Books</span><strong>Send appointment details</strong><span>No booking</span><strong>Send agreed follow-up</strong><span>Replies</span><strong>Hand off to your team</strong></div></div></div>
 </div>
 <div class="flow-panel" tabindex="-1" role="region" aria-label="Run the estimate" data-panel="estimate">
-<p class="compact-caption">Your team runs the walkthrough, quotes, and closes.</p>
-<div class="flow-caption"><span class="tag">Your team</span><h3>Turn the opportunity into a job.</h3><p>Your team runs the walkthrough, prices the scope, sends the estimate, and closes. The system keeps the next action visible.</p><div class="flow-output"><span>Consultation + walkthrough + quote</span><i>↓</i><b>Outcome recorded by your team</b></div></div>
-<div class="mock crm"><div class="mock-top"><span class="avatar">✓</span><span><b>Kitchen remodel opportunity</b><small>Sample estimate pipeline</small></span></div><ol class="mock-body pipeline"><li><span>✓</span><div><b>Walkthrough booked</b><small>Appointment confirmed</small></div></li><li><span>✓</span><div><b>Estimate sent</b><small>Scope and price from your team</small></div></li><li><span>→</span><div><b>Decision pending</b><small>Record accepted, declined, or still in progress</small></div></li></ol></div>
+<p class="compact-caption"><span data-brief="handoff">Your team runs the walkthrough, quotes, and closes.</span></p>
+<div class="flow-caption"><span class="tag">Your team</span><h3>Turn the opportunity into a job.</h3><p><span data-brief="handoff">Your team runs the walkthrough, prices the scope, sends the estimate, and closes. The system keeps the next action visible.</span></p><div class="flow-output"><span><span data-brief="handoff-task">Consultation + walkthrough + quote</span></span><i>↓</i><b>Outcome recorded by your team</b></div></div>
+<div class="mock crm"><div class="mock-top"><span class="avatar">✓</span><span><b><span data-brief="opportunity">Kitchen remodel opportunity</span></b><small>Sample estimate pipeline</small></span></div><ol class="mock-body pipeline"><li><span>✓</span><div><b><span data-brief="action-status">Walkthrough booked</span></b><small><span data-brief="action-status-caption">Appointment confirmed</span></small></div></li><li><span>✓</span><div><b data-brief="decision-step">Estimate sent</b><small data-brief="decision-caption">Scope and price from your team</small></div></li><li><span>→</span><div><b>Decision pending</b><small>Record accepted, declined, or still in progress</small></div></li></ol></div>
 </div>
 </div>
 </fieldset>
 </section>
 
 <section class="section" id="follow-up" aria-labelledby="follow-title">
- <div class="section-heading"><div><p class="eyebrow">02 / Automatic follow-up</p><h2 id="follow-title">Stay in touch for months.</h2></div><p>Built around your business, not a generic drip.</p></div>
+ <div class="section-heading"><div><p class="eyebrow">02 / Automatic follow-up</p><h2 id="follow-title"><span data-brief="follow-headline">Stay in touch for months.</span></h2></div><p>Built around your business, not a generic drip.</p></div>
  <fieldset class="demo nurture">
   <legend class="sr-only">Select a business to see its example follow-up timeline</legend>
   <input class="sr-only" type="radio" name="industry" id="industry-remodel" checked>
   <input class="sr-only" type="radio" name="industry" id="industry-roof">
   <div class="branch-picker industry-picker"><label for="industry-remodel">Remodeler</label><label for="industry-roof">Roofer</label></div>
-  <div class="nurture-rule">
+  <div class="nurture-rule"><span class="brief-rule" data-brief="rule"></span>
    <span data-industry="remodel"><b>Kitchen remodel</b> · consult-first · planning can take months</span>
    <span data-industry="roof"><b>Roof replacement</b> · inspection-first · leak reports go straight to the team</span>
   </div>
@@ -265,22 +270,22 @@ footer{border-top:1px solid var(--line);color:#c7b6c1}.foot{display:flex;justify
     <div class="nurture-time"><small>Immediate</small><b>Acknowledge</b></div>
     <div class="nurture-message" data-industry="remodel"><small>On inquiry · Text</small><p>Got your kitchen remodel request. Want to pick a time to talk through what you’d like to change?</p></div>
     <div class="nurture-message" data-industry="roof"><small>On inquiry · Text</small><p>Thanks for reaching out about your roof. Here’s where to request an inspection. If you’re seeing a leak, reply so our team can follow up.</p></div>
-   </li>
+   <div class="nurture-message brief-message"><small data-brief="now-when"></small><p data-brief="now-copy"></p></div></li>
    <li data-cadence="days">
     <div class="nurture-time"><small>Days</small><b>Help them act</b></div>
     <div class="nurture-message" data-industry="remodel"><small>Day 3 · Email</small><p><b>What to bring to a kitchen consult:</b> A few photos and your must-haves are enough to get started.</p></div>
     <div class="nurture-message" data-industry="roof"><small>Day 2 · Email</small><p><b>What happens at a roof inspection:</b> We’ll assess the roof and explain whether repair or replacement makes sense.</p></div>
-   </li>
+   <div class="nurture-message brief-message"><small data-brief="days-when"></small><p data-brief="days-copy"></p></div></li>
    <li data-cadence="weeks">
     <div class="nurture-time"><small>Weeks</small><b>Check timing</b></div>
     <div class="nurture-message" data-industry="remodel"><small>Week 3 · Text</small><p>Still planning the kitchen, or did your timeline change? Reply and we’ll take it from there.</p></div>
     <div class="nurture-message" data-industry="roof"><small>Week 2 · Text</small><p>Still need someone to look at your roof? Reply if you’d like help finding an inspection time.</p></div>
-   </li>
+   <div class="nurture-message brief-message"><small data-brief="weeks-when"></small><p data-brief="weeks-copy"></p></div></li>
    <li data-cadence="months">
     <div class="nurture-time"><small>Months</small><b>Reconnect</b></div>
     <div class="nurture-message" data-industry="remodel"><small>Month 3 · Email</small><p><b>Is your kitchen still on the list?</b> If you’re aiming for next season, we can talk through a realistic start date.</p></div>
     <div class="nurture-message" data-industry="roof"><small>Month 2 · Email</small><p><b>Revisit your roof plans:</b> If replacement is still on your list, we can help you decide when to schedule an inspection.</p></div>
-   </li>
+   <div class="nurture-message brief-message"><small data-brief="months-when"></small><p data-brief="months-copy"></p></div></li>
   </ol>
   <div class="nurture-switch"><span><b>Replies</b> → team takes over</span><span><b>Books</b> → switch to appointment reminders</span><span><b>Opts out</b> → stop that channel</span></div>
  </fieldset>
@@ -311,14 +316,68 @@ footer{border-top:1px solid var(--line);color:#c7b6c1}.foot{display:flex;justify
   const dedication = document.getElementById('client-dedication');
   const nameNode = document.getElementById('client-name');
   const anchors = new Map([...document.querySelectorAll('a[href^="#"]')].map(a => [a, a.getAttribute('href')]));
+  const briefNodes = [...document.querySelectorAll('[data-brief]')].map(node => [node, node.textContent]);
+  const clean = (value, limit) => Array.from((value || '').replace(/[\u0000-\u001f\u007f]/g, ' ').trim()).slice(0, limit).join('');
+  const actions = {
+    call: ['Book a call', 'pick a time for a quick call', 'a short note on what you need', 'Call booked'],
+    quote: ['Request a quote', 'share the details for a quote', 'the scope, location, and timing', 'Quote requested'],
+    visit: ['Schedule an on-site visit', 'find a time for an on-site visit', 'the address and anything we should look at', 'Visit booked'],
+    reply: ['Reply for details', 'reply here for more details', 'one thing you’d like us to answer', 'Reply received']
+  };
+  const cadence = {
+    fast: ['Day 1', 'Week 1', 'Month 1'],
+    standard: ['Day 3', 'Week 2', 'Month 2'],
+    long: ['Day 5', 'Week 4', 'Month 3']
+  };
   function update() {
     const raw = location.hash.slice(1);
     const params = new URLSearchParams(raw);
-    const name = Array.from((params.get('for') || '').replace(/[\u0000-\u001f\u007f]/g, ' ').trim()).slice(0, 100).join('');
+    const name = clean(params.get('for'), 100);
+    const custom = !!name && params.get('v') === '1';
+    const service = clean(params.get('service'), 80);
+    const area = clean(params.get('area'), 70);
+    const action = Object.hasOwn(actions, params.get('action')) ? params.get('action') : 'call';
+    const cycle = Object.hasOwn(cadence, params.get('cycle')) ? params.get('cycle') : 'standard';
+    const [cta, ask, prep, status] = actions[action];
+    const [day, week, month] = cadence[cycle];
+    const topic = service || 'your request';
+    const subject = service || 'your project';
+    const first = 'Hi, this is ' + name + '. Thanks for reaching out about ' + topic + '. When you’re ready, you can ' + ask + '.';
+    const values = {
+      name, service: service || 'Service inquiry', area: area || 'Confirm service area', 'area-line': area ? 'Service area: ' + area : '',
+      action: cta, 'ad-title': service ? 'Looking for ' + service + '?' : 'How can we help?',
+      'ad-body': area ? 'Serving ' + area + '. Tell us what you’re looking for.' : 'Tell us what you’re looking for and we’ll help with next steps.',
+      'form-title': service ? 'Tell us what you need: ' + service : 'Tell us what you need.', 'lead-name': 'Sample prospect',
+      'ad-source': service ? service + ' campaign' : name + ' campaign',
+      'follow-title': service ? service + ' inquiry' : 'New inquiry', first, opportunity: service ? service + ' opportunity' : 'New opportunity',
+      'decision-step': 'Next action sent', 'decision-caption': 'Your team follows up with the right details', 'action-status': status, 'action-status-caption': 'Your team confirms what happens next', 'handoff': 'Your team takes over, confirms fit, and closes the work.',
+      'handoff-task': cta + ' → your team takes over',
+      'audience-title': 'A prospect sees your offer.', 'audience-body': 'Ignite gives the right audience one clear next step.',
+      example: 'Illustrative campaign' + (service ? ': ' + service : '') + (area ? ' · ' + area : ''),
+      'follow-headline': 'Follow-up for ' + name + '.',
+      rule: (service || 'Service inquiry') + (area ? ' · ' + area : '') + ' · Next step: ' + cta,
+      'now-when': 'On inquiry · Text · ' + name, 'now-copy': first,
+      'days-when': day + ' · Email · ' + name, 'days-copy': 'Subject: A next step for ' + subject + '. If you’re still interested, send ' + prep + ' so we can point you in the right direction.',
+      'weeks-when': week + ' · Text · ' + name, 'weeks-copy': 'Hi, it’s ' + name + '. Is ' + subject + ' still on your list, or has your timing changed? Reply and we’ll take it from there.',
+      'months-when': month + ' · Email · ' + name, 'months-copy': 'Subject: Still considering ' + subject + '? If now’s a better time, you can ' + ask + '. If your plans changed, just let us know.'
+    };
+    document.documentElement.classList.toggle('custom-brief', custom);
+    document.querySelector('[data-panel="estimate"]').setAttribute('aria-label', custom ? 'Hand it to your team' : 'Run the estimate');
+    document.dispatchEvent(new Event('briefchange'));
+    for (const [node, original] of briefNodes) node.textContent = custom ? values[node.dataset.brief] ?? original : original;
     nameNode.textContent = name;
     dedication.hidden = !name;
+    const share = new URLSearchParams({for: name});
+    if (custom) {
+      share.set('v', '1');
+      if (service) share.set('service', service);
+      if (area) share.set('area', area);
+      share.set('action', action);
+      share.set('cycle', cycle);
+    }
     for (const [a, original] of anchors) {
-      a.setAttribute('href', name ? '#' + new URLSearchParams({for: name, at: original.slice(1)}) : original);
+      share.set('at', original.slice(1));
+      a.setAttribute('href', name ? '#' + share : original);
     }
     const at = params.get('at');
     if (name && at && ['main', 'top', 'funnel', 'journey', 'follow-up', 'timeline', 'terms'].includes(at)) {
@@ -341,14 +400,14 @@ footer{border-top:1px solid var(--line);color:#c7b6c1}.foot{display:flex;justify
 (() => {
   const stages = [...document.querySelectorAll('input[name="stage"]')];
   const bar = document.querySelector('.flow-toolbar');
-  const titles = stages.map(s => document.querySelector('[data-panel="' + s.id.slice(6) + '"]').getAttribute('aria-label'));
+  const titles = () => stages.map(s => document.querySelector('[data-panel="' + s.id.slice(6) + '"]').getAttribute('aria-label'));
   const index = () => stages.findIndex(s => s.checked);
   const back = document.getElementById('step-back');
   const next = document.getElementById('step-next');
   function update() {
     const current = index();
     document.getElementById('step-count').textContent = 'Step ' + (current + 1) + ' of ' + stages.length;
-    document.getElementById('step-title').textContent = titles[current];
+    document.getElementById('step-title').textContent = titles()[current];
     back.setAttribute('aria-disabled', String(current === 0));
     next.setAttribute('aria-disabled', String(current === stages.length - 1));
   }
@@ -361,6 +420,7 @@ footer{border-top:1px solid var(--line);color:#c7b6c1}.foot{display:flex;justify
   back.addEventListener('click', () => move(-1));
   next.addEventListener('click', () => move(1));
   for (const stage of stages) stage.addEventListener('change', update);
+  document.addEventListener('briefchange', update);
   document.querySelector('.flow').classList.add('has-compact-flow');
   bar.hidden = false;
   update();
