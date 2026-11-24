@@ -161,7 +161,8 @@ footer{border-top:1px solid var(--line);color:#c7b6c1}.foot{display:flex;justify
 #cadence-now:checked~.cadence-rail [for=cadence-now],#cadence-days:checked~.cadence-rail [for=cadence-days],#cadence-weeks:checked~.cadence-rail [for=cadence-weeks],#cadence-months:checked~.cadence-rail [for=cadence-months]{background:#592635;border-color:#f58292}
 #cadence-now:focus-visible~.cadence-rail [for=cadence-now],#cadence-days:focus-visible~.cadence-rail [for=cadence-days],#cadence-weeks:focus-visible~.cadence-rail [for=cadence-weeks],#cadence-months:focus-visible~.cadence-rail [for=cadence-months]{outline:2px solid #fff;outline-offset:1px}
 }
-.brief-banner,.brief-message,.brief-rule{display:none}
+.brief-banner,.brief-message,.brief-rule,.brief-funnel-name{display:none}
+.custom-brief .brief-funnel-name{display:block;text-align:center;color:#ffb5bd;font:750 .72rem/1.4 var(--mono);margin:0 0 6px;overflow-wrap:anywhere}.ad-visual[hidden],.brief-banner[hidden]{display:none}
 .custom-brief .industry-picker,.custom-brief input[name=industry],.custom-brief .nurture [data-industry],.custom-brief .flow .ad-visual{display:none}
 .custom-brief .brief-message,.custom-brief .brief-rule{display:block}
 .custom-brief .brief-banner{display:grid;gap:3px;padding:14px 12px;background:linear-gradient(125deg,#73344c,#321b2c);overflow-wrap:anywhere}
@@ -183,7 +184,7 @@ footer{border-top:1px solid var(--line);color:#c7b6c1}.foot{display:flex;justify
 <p class="hero-summary">Where we build the system. Where your team takes over.</p>
 <a class="hero-explore" href="#journey">Explore the process <span aria-hidden="true">↓</span></a>
 </div>
-<figure class="diagram" aria-label="The Ignite sales funnel">
+<figure class="diagram" aria-label="The Ignite sales funnel"><div class="brief-funnel-name" data-brief="funnel-name"></div>
 <ol class="funnel">
 <li class="tier"><small>Top / Attract</small><strong>Ad impressions</strong></li>
 <li class="tier"><small>Middle / Qualify</small><strong>Qualified inquiries</strong></li>
@@ -223,12 +224,12 @@ footer{border-top:1px solid var(--line);color:#c7b6c1}.foot{display:flex;justify
 <div class="flow-panel" tabindex="-1" role="region" aria-label="See the ad" data-panel="ad">
 <p class="compact-caption">Ignite creates and runs the ad.</p>
 <div class="flow-caption"><span class="tag">Homeowner view</span><h3><span data-brief="audience-title">A homeowner stops scrolling.</span></h3><p><span data-brief="audience-body">We put one clear offer in front of homeowners in your service area and give them one next step.</span></p><div class="flow-output"><span>Offer + creative + targeting</span><i>↓</i><b>Click to the campaign page</b></div></div>
-<div class="mock phone"><div class="mock-top"><span class="avatar">K</span><span><b><span data-brief="name">Example Remodeling Co.</span></b><small>Sponsored · Sample ad</small></span></div><div class="brief-banner"><b data-brief="service"></b><small data-brief="area-line"></small></div><div class="ad-visual" aria-label="Stylized illustration of a kitchen" role="img"><svg viewBox="0 0 320 118" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><defs><linearGradient id="wall" x2="0" y2="1"><stop stop-color="#77505a"/><stop offset="1" stop-color="#34202d"/></linearGradient></defs><path fill="url(#wall)" d="M0 0h320v118H0z"/><path fill="#88636c" d="M12 16h73v46H12zm222 0h73v46h-73z"/><path fill="#f7c8af" d="M101 14h119v48H101z"/><path fill="#784756" d="M107 19h50v37h-50zm57 0h50v37h-50z"/><path fill="#e2a583" d="M24 76h270v10H24z"/><path fill="#684052" d="M32 86h259v32H32z"/><path fill="#bc7a77" d="M58 96h206v22H58z"/><path fill="none" stroke="#482131" stroke-width="2" d="M63 16v46m201-46v46m-139 34v22m73-22v22"/></svg></div><div class="mock-body"><b><span data-brief="ad-title">Planning a kitchen remodel?</span></b><p><span data-brief="ad-body">Tell us what you want to change and find out if we’re a fit.</span></p><span class="mock-cta"><span data-brief="action">Request a walkthrough</span> <i>→</i></span></div></div>
+<div class="mock phone"><div class="mock-top"><span class="avatar" aria-hidden="true" data-brief="initial">K</span><span><b><span data-brief="name">Example Remodeling Co.</span></b><small>Sponsored · Sample ad</small></span></div><div class="brief-banner"><b data-brief="service"></b><small data-brief="area-line"></small></div><div class="ad-visual" aria-label="Stylized illustration of a kitchen" role="img"><svg viewBox="0 0 320 118" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><defs><linearGradient id="wall" x2="0" y2="1"><stop stop-color="#77505a"/><stop offset="1" stop-color="#34202d"/></linearGradient></defs><path fill="url(#wall)" d="M0 0h320v118H0z"/><path fill="#88636c" d="M12 16h73v46H12zm222 0h73v46h-73z"/><path fill="#f7c8af" d="M101 14h119v48H101z"/><path fill="#784756" d="M107 19h50v37h-50zm57 0h50v37h-50z"/><path fill="#e2a583" d="M24 76h270v10H24z"/><path fill="#684052" d="M32 86h259v32H32z"/><path fill="#bc7a77" d="M58 96h206v22H58z"/><path fill="none" stroke="#482131" stroke-width="2" d="M63 16v46m201-46v46m-139 34v22m73-22v22"/></svg></div><div class="mock-body"><b><span data-brief="ad-title">Planning a kitchen remodel?</span></b><p><span data-brief="ad-body">Tell us what you want to change and find out if we’re a fit.</span></p><span class="mock-cta"><span data-brief="action">Request a walkthrough</span> <i>→</i></span></div></div>
 </div>
 <div class="flow-panel" tabindex="-1" role="region" aria-label="Apply on mobile" data-panel="page">
 <p class="compact-caption">Ignite builds the page and intake form.</p>
 <div class="flow-caption"><span class="tag">Homeowner view</span><h3>The click becomes an inquiry.</h3><p>The landing page answers the basics. A short form collects what your team needs before reaching out.</p><div class="flow-output"><span>Campaign page + screening questions</span><i>↓</i><b>Contact details and project context</b></div></div>
-<div class="mock phone"><div class="mock-top"><span class="avatar">K</span><span><b><span data-brief="name">Example Remodeling Co.</span></b><small>Sample landing page</small></span></div><div class="mock-body"><span class="mock-kicker"><span data-brief="service">KITCHEN REMODELING</span></span><b><span data-brief="form-title">Tell us about your kitchen.</span></b><div class="form-mock"><div><small>Project</small><span><span data-brief="service">Full kitchen remodel</span></span></div><div><small>Location</small><span><span data-brief="area">Inside service area</span></span></div><div><small>Timing</small><span>Next 2–3 months</span></div></div><p class="example-consent">Contact details and channel permissions collected here.</p><span class="mock-cta">Submit request <i>→</i></span></div></div>
+<div class="mock phone"><div class="mock-top"><span class="avatar" aria-hidden="true" data-brief="initial">K</span><span><b><span data-brief="name">Example Remodeling Co.</span></b><small>Sample landing page</small></span></div><div class="mock-body"><span class="mock-kicker"><span data-brief="service">KITCHEN REMODELING</span></span><b><span data-brief="form-title">Tell us about your kitchen.</span></b><div class="form-mock"><div><small>Project</small><span><span data-brief="service">Full kitchen remodel</span></span></div><div><small>Location</small><span><span data-brief="area">Inside service area</span></span></div><div><small>Timing</small><span>Next 2–3 months</span></div></div><p class="example-consent">Contact details and channel permissions collected here.</p><span class="mock-cta">Submit request <i>→</i></span></div></div>
 </div>
 <div class="flow-panel" tabindex="-1" role="region" aria-label="Route the inquiry" data-panel="lead">
 <p class="compact-caption">Your team reviews the inquiry and confirms fit.</p>
@@ -252,7 +253,7 @@ footer{border-top:1px solid var(--line);color:#c7b6c1}.foot{display:flex;justify
 <section class="section" id="follow-up" aria-labelledby="follow-title">
  <div class="section-heading"><div><p class="eyebrow">02 / Automatic follow-up</p><h2 id="follow-title"><span data-brief="follow-headline">Stay in touch for months.</span></h2></div><p>Built around your business, not a generic drip.</p></div>
  <fieldset class="demo nurture">
-  <legend class="sr-only">Select a business to see its example follow-up timeline</legend>
+  <legend class="sr-only" data-brief="timeline-legend">Select a business to see its example follow-up timeline</legend>
   <input class="sr-only" type="radio" name="industry" id="industry-remodel" checked>
   <input class="sr-only" type="radio" name="industry" id="industry-roof">
   <div class="branch-picker industry-picker"><label for="industry-remodel">Remodeler</label><label for="industry-roof">Roofer</label></div>
@@ -344,7 +345,10 @@ footer{border-top:1px solid var(--line);color:#c7b6c1}.foot{display:flex;justify
     const subject = service || 'your project';
     const first = 'Hi, this is ' + name + '. Thanks for reaching out about ' + topic + '. When you’re ready, you can ' + ask + '.';
     const values = {
-      name, service: service || 'Service inquiry', area: area || 'Confirm service area', 'area-line': area ? 'Service area: ' + area : '',
+      name, initial: (name.match(/[\p{L}\p{N}]/u)?.[0] || '↗').toUpperCase(),
+      'timeline-legend': 'Illustrative follow-up timeline for ' + name,
+      'funnel-name': name + ' · Lead flow',
+      service: service || 'Service inquiry', area: area || 'Confirm service area', 'area-line': area ? 'Service area: ' + area : '',
       action: cta, 'ad-title': service ? 'Looking for ' + service + '?' : 'How can we help?',
       'ad-body': area ? 'Serving ' + area + '. Tell us what you’re looking for.' : 'Tell us what you’re looking for and we’ll help with next steps.',
       'form-title': service ? 'Tell us what you need: ' + service : 'Tell us what you need.', 'lead-name': 'Sample prospect',
@@ -362,6 +366,8 @@ footer{border-top:1px solid var(--line);color:#c7b6c1}.foot{display:flex;justify
       'months-when': month + ' · Email · ' + name, 'months-copy': 'Subject: Still considering ' + subject + '? If now’s a better time, you can ' + ask + '. If your plans changed, just let us know.'
     };
     document.documentElement.classList.toggle('custom-brief', custom);
+    document.querySelector('.ad-visual').hidden = custom;
+    document.querySelector('.brief-banner').hidden = !custom;
     document.querySelector('[data-panel="estimate"]').setAttribute('aria-label', custom ? 'Hand it to your team' : 'Run the estimate');
     document.dispatchEvent(new Event('briefchange'));
     for (const [node, original] of briefNodes) node.textContent = custom ? values[node.dataset.brief] ?? original : original;
